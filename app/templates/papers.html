@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Search Results</h2>
+<ul>
+    {% for paper in papers %}
+    <li>{{ paper.title }} ({{ paper.year }}) - <a href="{{ paper.doi }}" target="_blank">DOI</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Search Papers</h2>
+<form method="POST">
+    <input type="text" name="query" placeholder="Enter topic, author, paper name, etc.">
+    <button type="submit">Search</button>
+</form>
+{% endblock %}

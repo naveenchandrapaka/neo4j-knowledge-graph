@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Search Results for "{{ query }}"</h2>
+{% if results %}
+<ul>
+    {% for result in results %}
+    <p>
+        <strong>{{ result.title }}</strong> - {{ result.authors | join(", ") }} ({{ result.year }})
+        <a href="{{ url_for('routes_app.details', paper_id=result.id) }}">View Details</a>
+        {% if result.doi %}
+            <a href="{{ result.doi }}" target="_blank">DOI</a>
+        {% endif %}
+    </p>
+{% endfor %}
+
+</ul>
+{% else %}
+<p>No results found for "{{ query }}". Try a different search term.</p>
+{% endif %}
+<a href="{{ url_for('routes_app.search') }}" class="button">New Search</a>
+{% endblock %}

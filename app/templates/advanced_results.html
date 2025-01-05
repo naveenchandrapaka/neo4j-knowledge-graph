@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Search Results</h2>
+<p>
+    Filters:
+    {% if filters.topic_name %} Topic: {{ filters.topic_name }} {% endif %}
+    {% if filters.author_name %} Author: {{ filters.author_name }} {% endif %}
+    {% if filters.start_year %} Start Year: {{ filters.start_year }} {% endif %}
+    {% if filters.end_year %} End Year: {{ filters.end_year }} {% endif %}
+</p>
+
+{% if results %}
+    <ul>
+    {% for result in results %}
+        <li>
+            <strong>{{ result.title }}</strong> ({{ result.year }})<br>
+            Authors: {{ result.authors | join(", ") }}<br>
+            <a href="{{ url_for('routes_app.details', paper_id=result.id) }}">View Details</a>
+            <a href="{{ result.doi }}" target="_blank">DOI</a>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No results found for the given filters. Try adjusting your search criteria.</p>
+{% endif %}
+{% endblock %}

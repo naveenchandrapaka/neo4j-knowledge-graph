@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Paper Details</h2>
+{% if paper %}
+    <div>
+        <h2>Title: {{ paper.title }}</h2>
+        <p><strong>Year:</strong> {{ paper.year }}</p>
+        <p><strong>Authors:</strong> {{ paper.authors | join(', ') }}</p>
+    </div>
+
+    {% if paper['doi'] %}
+        <p><strong>DOI:</strong> <a href="{{ paper['doi'] }}" target="_blank">{{ paper['doi'] }}</a></p>
+    {% endif %}
+    <a href="{{ url_for('routes_app.search') }}" class="button">Back to Search</a>
+{% else %}
+    <p>{{ error }}</p>
+    <a href="{{ url_for('routes_app.search') }}" class="button">Back to Search</a>
+{% endif %}
+{% endblock %}

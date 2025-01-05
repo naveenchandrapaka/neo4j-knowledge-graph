@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Welcome to the Research Explorer</h2>
+<p>Discover research papers, authors, and more!</p>
+<a href="{{ url_for('routes_app.search') }}" class="button">Search Papers</a>
+<a href="{{ url_for('routes_app.visualize') }}" class="button">Visualize Network</a>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Advanced Paper Search</h2>
+<form method="POST">
+    <label for="topic_name">Topic:</label>
+    <input type="text" id="topic_name" name="topic_name" placeholder="e.g., Machine Learning">
+    <br>
+    <label for="author_name">Author:</label>
+    <input type="text" id="author_name" name="author_name" placeholder="e.g., Pedregosa">
+    <br>
+    <label for="start_year">Start Year:</label>
+    <input type="number" id="start_year" name="start_year" placeholder="e.g., 2010">
+    <br>
+    <label for="end_year">End Year:</label>
+    <input type="number" id="end_year" name="end_year" placeholder="e.g., 2022">
+    <br>
+    <button type="submit">Search</button>
+</form>
+{% endblock %}
